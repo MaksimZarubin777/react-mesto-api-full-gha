@@ -1,0 +1,12 @@
+.profile__avatar-update {
+  width: 26px;
+  height: 26px;
+  background-image: url(/src/images/updateavatar.png);
+  background-size: 26px;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 47px;
+  left: 47px;
+  z-index: 2;
+}
+

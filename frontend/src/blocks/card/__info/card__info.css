@@ -1,0 +1,7 @@
+.card__info {
+  margin-top: 7.5%;
+  margin-left: 7.6%;
+  margin-right: 7.1%;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,23 @@
+.profile__title {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 930px) {
+  .profile__title {
+    margin-left: 48.5px;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .profile__title {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__title {
+    margin-left: 27px;
+  }
+}
