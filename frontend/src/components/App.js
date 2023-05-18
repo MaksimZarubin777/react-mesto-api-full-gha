@@ -54,10 +54,16 @@ function App() {
       if (data.token) {
         setHeaderEmail(email);
         setLoggedIn(true);
+        setIsInfoTooltipOpen(true);
         navigate('/', {replace: true});
       }
     })
-    .catch(err => console.log(err));
+    .catch((err) => {
+      setLoggedIn(false);
+      setIsInfoTooltipOpen(true);
+      console.log(err);
+    });
+    
   }
 
   // функция регистрации
