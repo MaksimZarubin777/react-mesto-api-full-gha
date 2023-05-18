@@ -23,7 +23,6 @@ app.use(express.json());
 app.use(helmet());
 app.use(limiter);
 app.use(cookieParser());
-app.use(requestLogger);
 app.use(handleCors);
 app.post('/signup', celebrate({
   body: userValidationSchema,
@@ -35,6 +34,7 @@ app.get('/signout', logOut);
 app.use(auth);
 app.use(userRouter);
 app.use(cardRouter);
+app.use(requestLogger);
 app.use(errorLogger);
 app.use((req, res, next) => {
   next(new NotFoundError('Запрашиваемый ресурс не найден'));
