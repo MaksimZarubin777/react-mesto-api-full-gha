@@ -17,7 +17,7 @@ const errorsHandler = require('./middlewares/errorsHandler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { handleCors } = require('./middlewares/cors');
 
-mongoose.connect('mongodb://localhost:27017/mestodb ');
+mongoose.connect('mongodb://51.250.83.212:27017/mestodb ');
 
 app.use(express.json());
 app.use(helmet());
