@@ -81,7 +81,7 @@ function App() {
       setIsRegistrationSuccessful(false);
       setIsInfoTooltipOpen(true);
       console.error(err);
-      console.log('HUI');
+      console.log('Poluchilos');
     })
   }
 
