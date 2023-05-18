@@ -17,10 +17,10 @@ const errorsHandler = require('./middlewares/errorsHandler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { handleCors } = require('./middlewares/cors');
 
-mongoose.connect('mongodb://51.250.83.212:27017/mestodb ');
+mongoose.connect('mongodb://127.0.0.1:27017/mestodb ');
 
 app.use(express.json());
-app.use(helmet());
+app.use(helmet());тзь
 app.use(limiter);
 app.use(cookieParser());
 app.use(handleCors);
