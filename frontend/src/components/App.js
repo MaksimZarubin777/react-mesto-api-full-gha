@@ -210,7 +210,12 @@ function App() {
         <CurrentUserContext.Provider value={currentUser}>
           <Header loggedIn={loggedIn} handleLogout={handleLogout} headerEmail={headerEmail}/>
           <Routes>
-            <Route path="/sign-in" element={<Login onSubmit={handleLogin}/>}/>
+            <Route path="/sign-in" element={
+              <Login 
+                onSubmit={handleLogin}
+                onClose={closeAllPopups} 
+                isSuccess={loggedIn}
+                isOpen={isInfoTooltipOpen}/>}/>
             <Route path="/sign-up" element={
               <Register 
                 onSubmit={handleRegister} 

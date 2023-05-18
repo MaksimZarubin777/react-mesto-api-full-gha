@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import AuthForm from './AuthForm';
+import InfoTooltip from './InfoTooltip';
 
-function Login( {onSubmit} ) {
+function Login( {onSubmit, onClose, isSuccess, isOpen} ) {
 
   // стейт переменная данных формы
   const [formValue, setFormValue] = useState({
@@ -30,12 +31,17 @@ function Login( {onSubmit} ) {
   }
 
   return (
-    <AuthForm 
-      authTitle='Вход'
-      onSubmit={handleSubmit}
-      data={formValue}
-      onChange={handleChange}
-      authButtonText='Войти'/>
+    <>
+      <AuthForm 
+        authTitle='Вход'
+        onSubmit={handleSubmit}
+        data={formValue}
+        onChange={handleChange}
+        authButtonText='Войти'/>
+        {isOpen && (
+          <InfoTooltip onClose={onClose} isSuccess={isSuccess} isOpen={isOpen}/>
+        )}
+    </>
   )
 }
 
