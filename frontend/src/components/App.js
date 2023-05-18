@@ -78,8 +78,8 @@ function App() {
       }, 2000);
     })
     .catch((err) => {
-      setIsRegistrationSuccessful(false);
-      setIsInfoTooltipOpen(true);
+      // setIsRegistrationSuccessful(false);
+      // setIsInfoTooltipOpen(true);
       console.error(err);
     })
   }
