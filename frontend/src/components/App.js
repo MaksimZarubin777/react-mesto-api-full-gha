@@ -1,6 +1,3 @@
-// Михаил, благодарю за комментарии и ревью! Не очень понял логику useFormAndValidation и Popup, 
-// поэтому не стал добавлять в проект. Остальное постарался исправить и добавить. Спасибо!
-
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate} from 'react-router-dom';
 import '../index.css';
@@ -17,6 +14,7 @@ import Login from './Login';
 import Register from './Register';
 import ProtectedRouteElement from './ProtectedRoute'
 import * as auth from '../auth.js';
+require('dotenv').config();
 
 function App() {
   //  переменные состояния, отвечающие за видимость трёх попапов
