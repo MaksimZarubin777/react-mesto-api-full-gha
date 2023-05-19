@@ -8,8 +8,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 51.250.83.212
 
-Frontend https://...
+Frontend https://bestappever.nomoredomains.monster
 
-Backend https://...
+Backend https://api.bestappever.nomoredomains.monster
