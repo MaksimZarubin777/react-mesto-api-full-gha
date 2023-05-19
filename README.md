@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.83.212
+IP 51.250.83.212
 
 Frontend https://bestappever.nomoredomains.monster
 
