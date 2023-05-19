@@ -25,6 +25,7 @@ app.use(helmet());
 app.use(limiter);
 app.use(cookieParser());
 app.use(handleCors);
+app.use(requestLogger);
 app.post('/signup', celebrate({
   body: userValidationSchema,
 }), createUser);
@@ -35,7 +36,6 @@ app.get('/signout', logOut);
 app.use(auth);
 app.use(userRouter);
 app.use(cardRouter);
-app.use(requestLogger);
 app.use(errorLogger);
 app.use((req, res, next) => {
   next(new NotFoundError('Запрашиваемый ресурс не найден'));
