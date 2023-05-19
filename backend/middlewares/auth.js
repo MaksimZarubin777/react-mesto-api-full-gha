@@ -1,5 +1,6 @@
 const token = require('jsonwebtoken');
 const { AuthorizeError } = require('../errors/index');
+
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports = (req, res, next) => {
