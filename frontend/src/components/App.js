@@ -14,7 +14,6 @@ import Login from './Login';
 import Register from './Register';
 import ProtectedRouteElement from './ProtectedRoute'
 import * as auth from '../auth.js';
-require('dotenv').config();
 
 function App() {
   //  переменные состояния, отвечающие за видимость трёх попапов
