@@ -26,6 +26,11 @@ app.use(limiter);
 app.use(cookieParser());
 app.use(handleCors);
 app.use(requestLogger);
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.post('/signup', celebrate({
   body: userValidationSchema,
 }), createUser);
