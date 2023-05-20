@@ -7,7 +7,7 @@ const {
   userUpdateValidationSchema,
   userAvatarValidationSchema,
   userValidationSchema,
-} = require('./index');
+} = require('./validationSchema');
 const {
   getUsers,
   getUser,

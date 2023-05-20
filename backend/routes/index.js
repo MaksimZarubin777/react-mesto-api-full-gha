@@ -1,9 +1,7 @@
-const cards = require('./cards');
-const users = require('./users');
-const validationSchema = require('./validationSchema');
+const cardRouter = require('./cards');
+const userRouter = require('./users');
 
 module.exports = {
-  cards,
-  users,
-  validationSchema,
+  cardRouter,
+  userRouter,
 };

@@ -2,7 +2,7 @@ const express = require('express');
 
 const cardRouter = express.Router();
 const { celebrate } = require('celebrate');
-const { cardValidationSchema, cardIdValidationSchema } = require('./index');
+const { cardValidationSchema, cardIdValidationSchema } = require('./validationSchema');
 const {
   getCards,
   createCard,
