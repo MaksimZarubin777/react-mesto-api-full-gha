@@ -7,7 +7,7 @@ const cardValidationSchema = Joi.object().keys({
   link: Joi.string().required().pattern(REG_EXP),
 });
 const cardIdValidationSchema = Joi.object({
-  cardId: Joi.string().hex().length(24),
+  cardId: Joi.string().hex().length(24).required(),
 });
 const cardRouter = express.Router();
 const {
