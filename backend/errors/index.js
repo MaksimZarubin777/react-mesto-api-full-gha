@@ -3,7 +3,6 @@ const NotFoundError = require('./NotFoundError');
 const ForbiddenError = require('./ForbiddenError');
 const AuthorizeError = require('./AuthorizeError');
 const ConflictError = require('./ConflictError');
-const ServerError = require('./ServerError');
 
 module.exports = {
   BadRequestError,
@@ -11,5 +10,4 @@ module.exports = {
   ForbiddenError,
   AuthorizeError,
   ConflictError,
-  ServerError,
 };
