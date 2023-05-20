@@ -1,6 +1,6 @@
 const token = require('jsonwebtoken');
 const { AuthorizeError } = require('../errors/index');
-const config = require('../../config');
+const config = require('../config');
 
 module.exports = (req, res, next) => {
   const { jwt } = req.cookies;
