@@ -65,7 +65,13 @@ const updateUser = (req, res, next) => {
   )
     .orFail(new NotFoundError('User not found'))
     .then((user) => res.send({ data: user }))
-    .catch(next);
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        next(new BadRequestError('Некорректные данные при создании пользователя'));
+      } else {
+        next(err);
+      }
+    });
 };
 
 const updateAvatar = (req, res, next) => {
