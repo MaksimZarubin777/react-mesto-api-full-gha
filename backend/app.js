@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const { celebrate } = require('celebrate');
 
 const app = express();
-const { PORT = 3000 } = process.env;
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const limiter = require('./limiter');
@@ -13,6 +12,7 @@ const { userRouter, userValidationSchema } = require('./routes/users');
 const cardRouter = require('./routes/cards');
 const { login, createUser, logOut } = require('./controllers/users');
 const auth = require('./middlewares/auth');
+const config = require('./config');
 const NotFoundError = require('./errors/NotFoundError');
 const errorsHandler = require('./middlewares/errorsHandler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -47,7 +47,7 @@ app.use((req, res, next) => {
 app.use(errorLogger);
 app.use(errors());
 app.use(errorsHandler);
-app.listen(PORT, () => {
+app.listen(config.port, () => {
   // eslint-disable-next-line no-console
-  console.log(`Server started at port ${PORT}`);
+  console.log(`Server started at port ${config.port}`);
 });
