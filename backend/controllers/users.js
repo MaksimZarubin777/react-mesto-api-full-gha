@@ -7,6 +7,16 @@ const { BadRequestError, NotFoundError, ConflictError } = require('../errors/ind
 
 const { NODE_ENV, JWT_SECRET } = process.env;
 
+const findUserById = (id) => {
+  User.findById(id)
+    .then((user) => {
+      if (!user) {
+        throw new NotFoundError('User not found');
+      }
+      return user;
+    });
+};
+
 const getUsers = (req, res, next) => {
   User.find()
     .then((users) => {
@@ -17,13 +27,8 @@ const getUsers = (req, res, next) => {
 
 const getUser = (req, res, next) => {
   const { id } = req.params;
-  User.findById(id)
-    .then((user) => {
-      if (!user) {
-        throw new NotFoundError('User not found');
-      }
-      return res.send({ data: user });
-    })
+  findUserById(id)
+    .then((user) => res.send({ data: user }))
     .catch(next);
 };
 
@@ -112,11 +117,8 @@ const logOut = (req, res, next) => {
 };
 
 const getMe = (req, res, next) => {
-  const myId = req.user._id;
-  User.findOne({ _id: myId })
-    .then((user) => {
-      res.send({ data: user });
-    })
+  findUserById(req.user._id)
+    .then((user) => res.send({ data: user }))
     .catch(next);
 };
 
