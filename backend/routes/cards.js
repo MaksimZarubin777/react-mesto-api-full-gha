@@ -18,10 +18,10 @@ const {
   removeCardLike,
 } = require('../controllers/cards');
 
-cardRouter.get('/cards', getCards);
-cardRouter.post('/cards', celebrate({ body: cardValidationSchema }), createCard);
-cardRouter.delete('/cards/:cardId', celebrate({ params: cardIdValidationSchema }), deleteCard);
-cardRouter.put('/cards/:cardId/likes', celebrate({ params: cardIdValidationSchema }), addCardLike);
-cardRouter.delete('/cards/:cardId/likes', celebrate({ params: cardIdValidationSchema }), removeCardLike);
+cardRouter.get(getCards);
+cardRouter.post(celebrate({ body: cardValidationSchema }), createCard);
+cardRouter.delete('/:cardId', celebrate({ params: cardIdValidationSchema }), deleteCard);
+cardRouter.put('/:cardId/likes', celebrate({ params: cardIdValidationSchema }), addCardLike);
+cardRouter.delete('/:cardId/likes', celebrate({ params: cardIdValidationSchema }), removeCardLike);
 
 module.exports = cardRouter;

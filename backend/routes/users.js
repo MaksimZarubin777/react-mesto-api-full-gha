@@ -29,15 +29,15 @@ const {
   getMe,
 } = require('../controllers/users');
 
-userRouter.get('/users', getUsers);
-userRouter.get('/users/me', getMe);
-userRouter.get('/users/:id', celebrate({
+userRouter.get(getUsers);
+userRouter.get('/me', getMe);
+userRouter.get('/:id', celebrate({
   params: idValidationSchema,
 }), getUser);
-userRouter.patch('/users/me', celebrate({
+userRouter.patch('/me', celebrate({
   body: userUpdateValidationSchema,
 }), updateUser);
-userRouter.patch('/users/me/avatar', celebrate({
+userRouter.patch('/me/avatar', celebrate({
   body: userAvatarValidationSchema,
 }), updateAvatar);
 
