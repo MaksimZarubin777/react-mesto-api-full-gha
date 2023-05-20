@@ -1,7 +1,6 @@
 const token = require('jsonwebtoken');
 const { AuthorizeError } = require('../errors/index');
-
-const { NODE_ENV, JWT_SECRET } = process.env;
+const config = require('../../config');
 
 module.exports = (req, res, next) => {
   const { jwt } = req.cookies;
@@ -10,7 +9,7 @@ module.exports = (req, res, next) => {
   }
   let payload;
   try {
-    payload = token.verify(jwt, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
+    payload = token.verify(jwt, config.env === 'production' ? config.jwtSecret : 'dev-secret');
   } catch (err) {
     return next(new AuthorizeError('Необходима авторизация'));
   }
