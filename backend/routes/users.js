@@ -29,7 +29,7 @@ const {
   getMe,
 } = require('../controllers/users');
 
-userRouter.get(getUsers);
+userRouter.get('/', getUsers);
 userRouter.get('/me', getMe);
 userRouter.get('/:id', celebrate({
   params: idValidationSchema,
