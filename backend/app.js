@@ -2,11 +2,10 @@ require('dotenv').config();
 const express = require('express');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
-const { celebrate } = require('celebrate');
+const { celebrate, errors } = require('celebrate');
 
 const app = express();
 const mongoose = require('mongoose');
-const { errors } = require('celebrate');
 const limiter = require('./limiter');
 const { userRouter, cardRouter } = require('./routes/index');
 const { userValidationSchema } = require('./routes/validationSchema');
