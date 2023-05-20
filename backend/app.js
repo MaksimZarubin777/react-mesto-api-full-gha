@@ -41,10 +41,10 @@ app.get('/signout', logOut);
 app.use(auth);
 app.use('/users', userRouter);
 app.use('/cards', cardRouter);
-app.use(errorLogger);
 app.use((req, res, next) => {
   next(new NotFoundError('Запрашиваемый ресурс не найден'));
 });
+app.use(errorLogger);
 app.use(errors());
 app.use(errorsHandler);
 app.listen(PORT, () => {
