@@ -30,7 +30,7 @@ function Register( {onSubmit, onClose, isSuccess, isOpen} ) {
   return (
     <>
     <AuthForm 
-      authTitle='Регистрация1'
+      authTitle='Регистрация'
       onSubmit={handleSubmit}
       data={formValue}
       onChange={handleChange}
