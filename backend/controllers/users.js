@@ -15,6 +15,19 @@ const findUserById = (id) => User.findById(id)
     return user;
   });
 
+const updateUserData = (id, updatedData, res, next) => {
+  User.findByIdAndUpdate(id, updatedData, { new: true, runValidators: true })
+    .orFail(new NotFoundError('User not found'))
+    .then((updatedUser) => res.send({ data: updatedUser }))
+    .catch((err) => {
+      if (err instanceof mongoose.Error.ValidationError) {
+        next(new BadRequestError('Некорректные данные при обновлении пользователя'));
+      } else {
+        next(err);
+      }
+    });
+};
+
 const getUsers = (req, res, next) => {
   User.find()
     .then((users) => {
@@ -61,35 +74,11 @@ const createUser = (req, res, next) => {
 };
 
 const updateUser = (req, res, next) => {
-  const { name, about } = req.body;
-  User.findByIdAndUpdate(
-    req.user._id,
-    { name, about },
-    { new: true, runValidators: true },
-  )
-    .orFail(new NotFoundError('User not found'))
-    .then((user) => res.send({ data: user }))
-    .catch((err) => {
-      if (err instanceof mongoose.Error.ValidationError) {
-        next(new BadRequestError('Некорректные данные при создании пользователя'));
-      } else {
-        next(err);
-      }
-    });
+  updateUserData(req.user._id, { name: req.body.name, about: req.body.about }, res, next);
 };
 
 const updateAvatar = (req, res, next) => {
-  const { avatar } = req.body;
-  User.findByIdAndUpdate(req.user._id, { avatar }, { new: true, runValidators: true })
-    .orFail(new NotFoundError('User not found'))
-    .then((userAvatar) => res.send({ data: userAvatar }))
-    .catch((err) => {
-      if (err instanceof mongoose.Error.ValidationError) {
-        next(new BadRequestError('Некорректные данные при создании пользователя'));
-      } else {
-        next(err);
-      }
-    });
+  updateUserData(req.user._id, { avatar: req.body.avatar }, res, next);
 };
 
 const login = (req, res, next) => {
